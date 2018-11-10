@@ -13,6 +13,8 @@ alias ff='find . -type f -name'
 alias fd='find . -type d -name'
 alias p='pwd'
 
+alias gs='git status'
+
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Start lldb session
