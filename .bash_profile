@@ -23,6 +23,8 @@ bind '"jk":vi-movement-mode'
 alias v="nvim"
 alias dev="cd ~/dev"
 
+export LANGUAGE='en_US.UTF-8 git'
+
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # Change prompt
