@@ -11,6 +11,22 @@ alias so="source"
 alias gs="git status"
 alias gc="git commit -m"
 
+fe() {
+local files
+   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+   [[ -n "$files" ]] && ${EDITOR:-nvim} "${files[@]}"
+ }
+# fd - cd to selected directory
+fd() {
+   local dir
+    dir=$(find ${1:-.} -path '*/\.*' -prune \
+                    -o -type d -print 2> /dev/null | fzf +m) &&
+    cd "$dir"
+  }
+
+bind -x '"\C-f": fe'
+bind -x '"\C-g": fd '
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
